@@ -1,0 +1,17 @@
+{
+  "name": "@socialgouv/jours-feries",
+  "description": "Les jours feriés Français",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "lint": "eslint",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@socialgouv/eslint-config-recommended": "^0.10.3",
+    "eslint": "^6.7.2",
+    "jest-cli": "^24.9.0",
+    "prettier": "^1.19.1"
+  }
+}
