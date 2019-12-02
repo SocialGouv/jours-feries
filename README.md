@@ -1,4 +1,6 @@
-# jours-feries [![NPM](https://nodei.co/npm/@socialgouv/jours-feries.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/@socialgouv/jours-feries)
+# jours-feries
+
+[![NPM](https://nodei.co/npm/@socialgouv/jours-feries.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/@socialgouv/jours-feries)
 
 JavaScript / npm port of [jours-feries-france](https://github.com/AntoineAugusti/jours-feries-france) by @AntoineAugusti
 
