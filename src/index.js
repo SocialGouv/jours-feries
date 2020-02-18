@@ -1,16 +1,41 @@
-const addDays = (date, days) =>
-  new Date(date.getTime() + days * 24 * 60 * 60 * 1000);
+"use strict";
 
-const lundiDePaques = year => addDays(paques(year), 1);
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
 
-const vendrediSaint = year => addDays(paques(year), -2);
+var addDays = function addDays(date, days) {
+  return new Date(date.getTime() + days * 24 * 60 * 60 * 1000);
+};
 
-const ascension = year => addDays(paques(year), 39);
+var lundiDePaques = function lundiDePaques(year) {
+  return addDays(paques(year), 1);
+};
 
-const lundiDePentecote = year => addDays(paques(year), 50);
+var vendrediSaint = function vendrediSaint(year) {
+  return addDays(paques(year), -2);
+};
 
-const paques = year => {
-  const a = year % 19,
+var ascension = function ascension(year) {
+  return addDays(paques(year), 39);
+};
+
+var lundiDePentecote = function lundiDePentecote(year) {
+  return addDays(paques(year), 50);
+};
+
+var paques = function paques(year) {
+  var a = year % 19,
     // century
     b = parseInt(year / 100),
     // years after century
@@ -26,29 +51,46 @@ const paques = year => {
     f = d + e - 7 * parseInt((a + 11 * d + 22 * e) / 451) + 114,
     month = parseInt(f / 31),
     day = (f % 31) + 1;
-
   return new Date(year, month - 1, day);
 };
 
-const jourDeLAn = year => new Date(year, 0, 1);
+var jourDeLAn = function jourDeLAn(year) {
+  return new Date(year, 0, 1);
+};
 
-const feteDuTravail = year => new Date(year, 4, 1);
+var feteDuTravail = function feteDuTravail(year) {
+  return new Date(year, 4, 1);
+};
 
-const victoireDesAllies = year => new Date(year, 4, 8);
+var victoireDesAllies = function victoireDesAllies(year) {
+  return new Date(year, 4, 8);
+};
 
-const feteNationale = year => new Date(year, 6, 14);
+var feteNationale = function feteNationale(year) {
+  return new Date(year, 6, 14);
+};
 
-const assomption = year => new Date(year, 7, 15);
+var assomption = function assomption(year) {
+  return new Date(year, 7, 15);
+};
 
-const toussaint = year => new Date(year, 10, 1);
+var toussaint = function toussaint(year) {
+  return new Date(year, 10, 1);
+};
 
-const armistice = year => new Date(year, 10, 11);
+var armistice = function armistice(year) {
+  return new Date(year, 10, 11);
+};
 
-const noel = year => new Date(year, 11, 25);
+var noel = function noel(year) {
+  return new Date(year, 11, 25);
+};
 
-const saintEtienne = year => new Date(year, 11, 26);
+var saintEtienne = function saintEtienne(year) {
+  return new Date(year, 11, 26);
+};
 
-const fetes = {
+var fetes = {
   "Jour de l'an": jourDeLAn,
   "Fête du travail": feteDuTravail,
   "Victoire des alliés": victoireDesAllies,
@@ -63,16 +105,27 @@ const fetes = {
   "Vendredi Saint": vendrediSaint,
   "Saint Étienne": saintEtienne
 };
+var fetesAlsace = ["Vendredi Saint", "Saint Étienne"];
 
-const fetesAlsace = ["Vendredi Saint", "Saint Étienne"];
+var getJoursFeries = function getJoursFeries(year) {
+  var _ref =
+      arguments.length > 1 && arguments[1] !== undefined
+        ? arguments[1]
+        : {
+            alsace: false
+          },
+    alsace = _ref.alsace;
 
-const getJoursFeries = (year, { alsace } = { alsace: false }) =>
-  Object.keys(fetes)
-    // filter out alsace if needed
-    .filter(fete => alsace || !fetesAlsace.includes(fete))
-    // get results
-    .map(fete => ({ [fete]: fetes[fete](parseInt(year)) }))
-    // flatten dict
-    .reduce((acc, fete) => ({ ...acc, ...fete }), {});
+  return Object.keys(fetes) // filter out alsace if needed
+    .filter(function(fete) {
+      return alsace || !fetesAlsace.includes(fete);
+    }) // get results
+    .map(function(fete) {
+      return _defineProperty({}, fete, fetes[fete](parseInt(year)));
+    }) // flatten dict
+    .reduce(function(acc, fete) {
+      return Object.assign(acc, fete);
+    }, {});
+}; //
 
 module.exports = getJoursFeries;
