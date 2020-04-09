@@ -1,0 +1,37 @@
+name: 📆⛱️
+
+on: [push]
+
+jobs:
+  basics:
+
+    runs-on: ubuntu-latest
+    strategy:
+      # e.g. if lint fails, continue to the unit tests anyway
+      fail-fast: false
+
+    steps:
+    - name: git clone
+      uses: actions/checkout@v2
+
+    - name: Use Node.js 12
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+
+    # Cache yarn deps. thx https://github.com/actions/cache/blob/master/examples.md#node---yarn
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+    - name: Set up node_modules cache
+      uses: actions/cache@v1
+      id: yarn-cache
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+
+    - run: yarn --frozen-lockfile
+    - run: yarn lint
+    - run: yarn test
