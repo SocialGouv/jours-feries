@@ -2,6 +2,9 @@ name: 📆⛱️
 
 on: [push]
 
+env:
+  TZ: "Europe/Paris"
+
 jobs:
   basics:
 
