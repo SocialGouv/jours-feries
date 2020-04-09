@@ -37,4 +37,7 @@ jobs:
 
     - run: yarn --frozen-lockfile
     - run: yarn lint
-    - run: yarn test
+    - run: yarn test --coverage
+      
+    - name: Send test coverage to CodeCov
+      uses: codecov/codecov-action@v1
