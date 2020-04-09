@@ -3,7 +3,7 @@ name: 📆⛱️
 on: [push]
 
 env:
-  TZ: "UTC"
+  TZ: "Europe/Paris"
 
 jobs:
   basics:
