@@ -1,6 +1,6 @@
 # jours-feries
 
-![📆⛱️](https://github.com/SocialGouv/jours-feries/workflows/%F0%9F%93%86%E2%9B%B1%EF%B8%8F/badge.svg)  
+![📆⛱️](https://github.com/SocialGouv/jours-feries/workflows/%F0%9F%93%86%E2%9B%B1%EF%B8%8F/badge.svg) [![codecov](https://codecov.io/gh/SocialGouv/jours-feries/branch/master/graph/badge.svg)](https://codecov.io/gh/SocialGouv/jours-feries)  
 [![NPM](https://nodei.co/npm/@socialgouv/jours-feries.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/@socialgouv/jours-feries)
 
 JavaScript / npm port of [jours-feries-france](https://github.com/AntoineAugusti/jours-feries-france) by @AntoineAugusti
