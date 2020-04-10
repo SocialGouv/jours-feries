@@ -6,7 +6,7 @@ function _defineProperty(obj, key, value) {
       value: value,
       enumerable: true,
       configurable: true,
-      writable: true
+      writable: true,
     });
   } else {
     obj[key] = value;
@@ -103,7 +103,7 @@ var fetes = {
   Ascension: ascension,
   "Lundi de Pentecôte": lundiDePentecote,
   "Vendredi Saint": vendrediSaint,
-  "Saint Étienne": saintEtienne
+  "Saint Étienne": saintEtienne,
 };
 var fetesAlsace = ["Vendredi Saint", "Saint Étienne"];
 
@@ -112,18 +112,18 @@ var getJoursFeries = function getJoursFeries(year) {
       arguments.length > 1 && arguments[1] !== undefined
         ? arguments[1]
         : {
-            alsace: false
+            alsace: false,
           },
     alsace = _ref.alsace;
 
   return Object.keys(fetes) // filter out alsace if needed
-    .filter(function(fete) {
+    .filter(function (fete) {
       return alsace || !fetesAlsace.includes(fete);
     }) // get results
-    .map(function(fete) {
+    .map(function (fete) {
       return _defineProperty({}, fete, fetes[fete](parseInt(year)));
     }) // flatten dict
-    .reduce(function(acc, fete) {
+    .reduce(function (acc, fete) {
       return Object.assign(acc, fete);
     }, {});
 }; //
