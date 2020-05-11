@@ -1,43 +1,88 @@
 name: 📆⛱️
 
-on: [push]
+on:
+  - push
+  - pull_request
 
 env:
   TZ: "Europe/Paris"
 
 jobs:
-  basics:
+  build:
 
     runs-on: ubuntu-latest
     strategy:
       # e.g. if lint fails, continue to the unit tests anyway
       fail-fast: false
+      matrix:
+        node-version:
+          - 12.x
 
     steps:
-    - name: git clone
-      uses: actions/checkout@v2
-
-    - name: Use Node.js 12
+    - name: Set up Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: 12
+        node-version: ${{ matrix.node-version }}
 
-    # Cache yarn deps. thx https://github.com/actions/cache/blob/master/examples.md#node---yarn
     - name: Get yarn cache directory path
-      id: yarn-cache-dir-path
-      run: echo "::set-output name=dir::$(yarn cache dir)"
-    - name: Set up node_modules cache
-      uses: actions/cache@v1
-      id: yarn-cache
-      with:
-        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-yarn-
+      id: init
+      shell: bash
+      run: |
+        echo "::set-output name=yarn_cache::$(yarn cache dir)"
+        #
+        echo "Node $(node --version)"
+        echo "Yarn $(yarn --version)"
+    - uses: actions/checkout@v2
 
-    - run: yarn --frozen-lockfile
-    - run: yarn lint
-    - run: yarn test --coverage
+    - name: Cache Yarn packages
+      id: yarn_cache_packages
+      uses: actions/cache@v1
+      with:
+        path: ${{ steps.init.outputs.yarn_cache }}
+        key: ${{ runner.os }}-yarn_cache-${{ hashFiles('yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn_cache-
+    - name: Cache node_modules
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-${{ matrix.node-version }}-yarn-${{ hashFiles('yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-${{ matrix.node-version }}-yarn-
+
+    - name: Installing
+      run: yarn --frozen-lockfile --perfer-offline --link-duplicates
       
-    - name: Send test coverage to CodeCov
+    - name: Lint
+      run: yarn lint
+
+    - name: Unit tests
+      run: yarn test --coverage --coverageReporters=lcov --coverageReporters=text-summary
+      
+    - name: Send test coverage to codecov
+      continue-on-error: true
       uses: codecov/codecov-action@v1
+
+  release:
+    needs: 
+      - build
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - uses: actions/checkout@v2
+
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v2
+        with:
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
