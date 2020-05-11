@@ -52,19 +52,19 @@ jobs:
 
     - name: Installing
       run: yarn --frozen-lockfile --perfer-offline --link-duplicates
-      
+
     - name: Lint
       run: yarn lint
 
     - name: Unit tests
       run: yarn test --coverage --coverageReporters=lcov --coverageReporters=text-summary
-      
+
     - name: Send test coverage to codecov
       continue-on-error: true
       uses: codecov/codecov-action@v1
 
   release:
-    needs: 
+    needs:
       - build
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
@@ -83,6 +83,10 @@ jobs:
             @semantic-release/changelog
             @semantic-release/git
         env:
+          GIT_AUTHOR_EMAIL: ${{ secrets.GIT_AUTHOR_EMAIL }}
+          GIT_AUTHOR_NAME: ${{ secrets.GIT_AUTHOR_NAME }}
+          GIT_COMMITTER_EMAIL: ${{ secrets.GIT_AUTHOR_EMAIL }}
+          GIT_COMMITTER_NAME: ${{ secrets.GIT_AUTHOR_NAME }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
