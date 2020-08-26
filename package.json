@@ -12,6 +12,6 @@
     "@socialgouv/eslint-config-recommended": "1.27.0",
     "eslint": "7.7.0",
     "jest-cli": "26.4.2",
-    "prettier": "2.1.0"
+    "prettier": "2.1.1"
   }
 }
