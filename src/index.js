@@ -3,9 +3,9 @@
 function _defineProperty(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
       configurable: true,
+      enumerable: true,
+      value: value,
       writable: true,
     });
   } else {
@@ -91,19 +91,19 @@ var saintEtienne = function saintEtienne(year) {
 };
 
 var fetes = {
-  "Jour de l'an": jourDeLAn,
-  "Fête du travail": feteDuTravail,
-  "Victoire des alliés": victoireDesAllies,
-  "Fête Nationale": feteNationale,
-  Assomption: assomption,
-  Toussaint: toussaint,
   Armistice: armistice,
-  Noël: noel,
-  "Lundi de Pâques": lundiDePaques,
   Ascension: ascension,
+  Assomption: assomption,
+  "Fête Nationale": feteNationale,
+  "Fête du travail": feteDuTravail,
+  "Jour de l'an": jourDeLAn,
   "Lundi de Pentecôte": lundiDePentecote,
-  "Vendredi Saint": vendrediSaint,
+  "Lundi de Pâques": lundiDePaques,
+  Noël: noel,
   "Saint Étienne": saintEtienne,
+  Toussaint: toussaint,
+  "Vendredi Saint": vendrediSaint,
+  "Victoire des alliés": victoireDesAllies,
 };
 var fetesAlsace = ["Vendredi Saint", "Saint Étienne"];
 
