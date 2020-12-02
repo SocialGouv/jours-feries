@@ -5,7 +5,7 @@
 name: 🤖
 on: [pull_request]
 jobs:
-  Automerge:
+  🔀:
     runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'
     steps:
