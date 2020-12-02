@@ -1,43 +1,26 @@
 #
-# Inspired by https://github.com/ros-tooling/cross_compile/blob/0.6.0/.github/workflows/auto_dependabot.yml
+# Inspired by https://github.com/dictyBase/dicty-components-login/blob/161e12ff35b27f9b1c81c0deefa7417f56ce10c5/.github/workflows/automerge-dependabot.yml
 #
 
-name: Automate Dependabot PRs
-
-on:
-  pull_request:
-    branches: master
-  pull_request_review:
-    types:
-      - submitted
-  check_suite:
-    types:
-      - completed
-  status: {}
-
+name: Automerge (Dependabot)
+on: [pull_request]
 jobs:
-  # Automatically approve green dependabot PRs
-  auto-approve-dependabot:
+  automerge:
     runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
     steps:
-      - uses: hmarr/auto-approve-action@v2.0.0
-        if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
+      - name: wait for build to pass
+        uses: fountainhead/action-wait-for-check@v1.0.0
+        id: wait-for-unit-tests
         with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
-  # Automatically merge approved and green dependabot PRs.
-  auto-merge-dependabot:
-    runs-on: ubuntu-latest
-    needs:
-      - auto-approve-dependabot
-    steps:
-      - uses: pascalgn/automerge-action@v0.12.0
-        if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: "dependencies"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: build
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: merge
+        if: steps.wait-for-unit-tests.outputs.conclusion == 'success'
+        uses: ridedott/merge-me-action@v1.8.61
+        with:
+          GITHUB_LOGIN: dependabot[bot]
+          GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           MERGE_METHOD: "squash"
-          MERGE_COMMIT_MESSAGE: "pull-request-title-and-description"
-          MERGE_RETRY_SLEEP: "1200000" # Retry after 20m, enough time for check suites to run
-          UPDATE_RETRIES: "6"
-          UPDATE_METHOD: "rebase"
-          UPDATE_RETRY_SLEEP: "300000"
+          PRESET: DEPENDABOT_PATCH
