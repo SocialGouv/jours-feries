@@ -2,10 +2,10 @@
 # Inspired by https://github.com/dictyBase/dicty-components-login/blob/161e12ff35b27f9b1c81c0deefa7417f56ce10c5/.github/workflows/automerge-dependabot.yml
 #
 
-name: Automerge (Dependabot)
+name: dependabot[bot]
 on: [pull_request]
 jobs:
-  automerge:
+  Automerge:
     runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'
     steps:
@@ -16,7 +16,6 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10
       - name: merge
-        if: steps.wait-for-unit-tests.outputs.conclusion == 'success'
         uses: ridedott/merge-me-action@v1.8.61
         with:
           GITHUB_LOGIN: dependabot[bot]
