@@ -2,7 +2,7 @@
 # Inspired by https://github.com/dictyBase/dicty-components-login/blob/161e12ff35b27f9b1c81c0deefa7417f56ce10c5/.github/workflows/automerge-dependabot.yml
 #
 
-name: dependabot[bot]
+name: 🤖
 on: [pull_request]
 jobs:
   Automerge:
