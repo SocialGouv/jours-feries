@@ -5,7 +5,7 @@
 name: 🤖
 on: [pull_request]
 jobs:
-  AutoMerge:
+  WaitForChecks:
     runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'
     steps:
@@ -15,10 +15,13 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 30
-      - name: merge
-        uses: ridedott/merge-me-action@v1.8.61
-        with:
-          GITHUB_LOGIN: dependabot[bot]
-          GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+  Merge:
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+    needs:
+      - WaitForChecks
+    steps:
+      - uses: pascalgn/automerge-action@v0.12.0
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           MERGE_METHOD: "squash"
-          PRESET: DEPENDABOT_PATCH
