@@ -9,13 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'
     steps:
-      - name: wait for build to pass
-        uses: fountainhead/action-wait-for-check@v1.0.0
-        id: wait-for-unit-tests
+      - name: Wait for other checks
+        uses: lewagon/wait-on-check-action@v0.1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: build (stable)
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
       - name: merge
         if: steps.wait-for-unit-tests.outputs.conclusion == 'success'
         uses: ridedott/merge-me-action@v1.8.61
