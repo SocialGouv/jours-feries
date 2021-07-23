@@ -558,13 +558,13 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@socialgouv/eslint-config-recommended@1.75.0":
-  version "1.75.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/eslint-config-recommended/-/eslint-config-recommended-1.75.0.tgz#4a47392b0b6cf339fee1ce58fa63fc5aa99f144c"
-  integrity sha512-fW2cXqb2u1kHyqQz0D3UWQI0J5MjKvv/xkzETe+jcMViwbBlcxReG0hjdR13KVJBH+RCfjHPruc7UMrGEzaL6g==
+"@socialgouv/eslint-config-recommended@1.82.0":
+  version "1.82.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/eslint-config-recommended/-/eslint-config-recommended-1.82.0.tgz#3a85cdf82deefcbf7ce126889b54f5337b32756c"
+  integrity sha512-YSkofF3V0po3WG0jgTQ2gO+nu3Zl3cPJZ3FvDW5FWc0PRFaQBveVHJh5GHwWtoQBew3YsGJ0Hxui6gHhGYPl1w==
   dependencies:
     eslint-config-prettier "~8.3.0"
-    eslint-plugin-import "~2.23.3"
+    eslint-plugin-import "~2.23.4"
     eslint-plugin-jest "~24.3.6"
     eslint-plugin-prettier "~3.4.0"
     eslint-plugin-simple-import-sort "~7.0.0"
@@ -1338,7 +1338,7 @@ eslint-module-utils@^2.6.1:
     debug "^3.2.7"
     pkg-dir "^2.0.0"
 
-eslint-plugin-import@~2.23.3:
+eslint-plugin-import@~2.23.4:
   version "2.23.4"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.23.4.tgz#8dceb1ed6b73e46e50ec9a5bb2411b645e7d3d97"
   integrity sha512-6/wP8zZRsnQFiR3iaPFgh5ImVRM1WN5NUWfTIRqwOdeiGJlBcSk82o1FEVq8yXmy4lkIzTo7YhHCIxlU/2HyEQ==
