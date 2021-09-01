@@ -9,7 +9,7 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@socialgouv/eslint-config-recommended": "1.85.4",
+    "@socialgouv/eslint-config-recommended": "1.86.0",
     "eslint": "7.32.0",
     "jest": "27.1.0",
     "prettier": "2.3.2"
