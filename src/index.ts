@@ -1,14 +1,6 @@
 const addDays = (date: Date, days: number) =>
   new Date(date.getTime() + days * 24 * 60 * 60 * 1000);
 
-const lundiDePaques = (year: number) => addDays(paques(year), 1);
-
-const vendrediSaint = (year: number) => addDays(paques(year), -2);
-
-const ascension = (year: number) => addDays(paques(year), 39);
-
-const lundiDePentecote = (year: number) => addDays(paques(year), 50);
-
 const paques = function (year: number) {
   const a = year % 19;
   const century = Number(year / 100);
@@ -34,41 +26,23 @@ const paques = function (year: number) {
   return new Date(year, month - 1, day);
 };
 
-const jourDeLAn = (year: number) => new Date(year, 0, 1);
-
-const feteDuTravail = (year: number) => new Date(year, 4, 1);
-
-const victoireDesAllies = (year: number) => new Date(year, 4, 8);
-
-const feteNationale = (year: number) => new Date(year, 6, 14);
-
-const assomption = (year: number) => new Date(year, 7, 15);
-
-const toussaint = (year: number) => new Date(year, 10, 1);
-
-const armistice = (year: number) => new Date(year, 10, 11);
-
-const noel = (year: number) => new Date(year, 11, 25);
-
-const saintEtienne = (year: number) => new Date(year, 11, 26);
-
 const fetes = (year: number) => ({
-  Armistice: armistice(year),
-  Ascension: ascension(year),
-  Assomption: assomption(year),
-  "Fête Nationale": feteNationale(year),
-  "Fête du travail": feteDuTravail(year),
-  "Jour de l'an": jourDeLAn(year),
-  "Lundi de Pentecôte": lundiDePentecote(year),
-  "Lundi de Pâques": lundiDePaques(year),
-  Noël: noel(year),
-  Toussaint: toussaint(year),
-  "Victoire des alliés": victoireDesAllies(year),
+  Armistice: new Date(year, 10, 11),
+  Ascension: addDays(paques(year), 39),
+  Assomption: new Date(year, 7, 15),
+  "Fête Nationale": new Date(year, 6, 14),
+  "Fête du travail": new Date(year, 4, 1),
+  "Jour de l'an": new Date(year, 0, 1),
+  "Lundi de Pentecôte": addDays(paques(year), 50),
+  "Lundi de Pâques": addDays(paques(year), 1),
+  Noël: new Date(year, 11, 25),
+  Toussaint: new Date(year, 10, 1),
+  "Victoire des alliés": new Date(year, 4, 8),
 });
 
 const fetesAlsace = (year: number) => ({
-  "Saint Étienne": saintEtienne(year),
-  "Vendredi Saint": vendrediSaint(year),
+  "Saint Étienne": new Date(year, 11, 26),
+  "Vendredi Saint": addDays(paques(year), -2),
 });
 
 const getJoursFeries = (year: number, options?: { alsace: boolean }) =>
