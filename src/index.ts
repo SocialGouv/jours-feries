@@ -48,4 +48,7 @@ const fetesAlsace = (year: number) => ({
 const getJoursFeries = (year: number, options?: { alsace: boolean }) =>
   options?.alsace ? { ...fetes(year), ...fetesAlsace(year) } : fetes(year);
 
+
+console.log(getJoursFeries(2018))
+
 export default getJoursFeries;
