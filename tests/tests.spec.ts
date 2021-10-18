@@ -35,7 +35,7 @@ test("should match 2020 results", () =>
   `));
 
 test("should match 2018 alsace-moselle results", () =>
-  expect(joursFeries(2018, { alsace: true })).toMatchInlineSnapshot(`
+  expect(joursFeries(2018, { zone: "alsace-moselle" })).toMatchInlineSnapshot(`
     Object {
       "Armistice": 2018-11-10T23:00:00.000Z,
       "Ascension": 2018-05-09T22:00:00.000Z,
@@ -54,7 +54,7 @@ test("should match 2018 alsace-moselle results", () =>
   `));
 
 test("should match 2020 alsace-moselle  results", () =>
-  expect(joursFeries(2020, { alsace: true })).toMatchInlineSnapshot(`
+  expect(joursFeries(2020, { zone: "alsace-moselle" })).toMatchInlineSnapshot(`
     Object {
       "Armistice": 2020-11-10T23:00:00.000Z,
       "Ascension": 2020-05-20T22:00:00.000Z,
