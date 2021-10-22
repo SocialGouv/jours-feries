@@ -68,4 +68,4 @@ function getJoursFeries(year: number, options: { zone: Zones } = { zone: "métro
   }
 }
 
-module.exports = getJoursFeries
+export default getJoursFeries

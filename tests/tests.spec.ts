@@ -1,4 +1,4 @@
-import joursFeries from "../src/index";
+import joursFeries from "../src/index"
 
 test("should match 2018 results", () =>
   expect(joursFeries(2018)).toMatchInlineSnapshot(`
@@ -15,7 +15,7 @@ test("should match 2018 results", () =>
       "Toussaint": 2018-10-31T23:00:00.000Z,
       "Victoire des alliés": 2018-05-07T22:00:00.000Z,
     }
-  `));
+  `))
 
 test("should match 2020 results", () =>
   expect(joursFeries(2020)).toMatchInlineSnapshot(`
@@ -32,7 +32,7 @@ test("should match 2020 results", () =>
       "Toussaint": 2020-10-31T23:00:00.000Z,
       "Victoire des alliés": 2020-05-07T22:00:00.000Z,
     }
-  `));
+  `))
 
 test("should match 2018 alsace-moselle results", () =>
   expect(joursFeries(2018, { zone: "alsace-moselle" })).toMatchInlineSnapshot(`
@@ -51,7 +51,7 @@ test("should match 2018 alsace-moselle results", () =>
       "Vendredi Saint": 2018-03-29T22:00:00.000Z,
       "Victoire des alliés": 2018-05-07T22:00:00.000Z,
     }
-  `));
+  `))
 
 test("should match 2020 alsace-moselle  results", () =>
   expect(joursFeries(2020, { zone: "alsace-moselle" })).toMatchInlineSnapshot(`
@@ -70,22 +70,16 @@ test("should match 2020 alsace-moselle  results", () =>
       "Vendredi Saint": 2020-04-09T22:00:00.000Z,
       "Victoire des alliés": 2020-05-07T22:00:00.000Z,
     }
-  `));
+  `))
 
 test("Lundi de Pâques 1954", () => {
-  expect(joursFeries(1954)["Lundi de Pâques"]).toMatchInlineSnapshot(
-    `1954-04-18T23:00:00.000Z`
-  );
-});
+  expect(joursFeries(1954)["Lundi de Pâques"]).toMatchInlineSnapshot(`1954-04-18T23:00:00.000Z`)
+})
 
 test("Lundi de Pâques 1981", () => {
-  expect(joursFeries(1981)["Lundi de Pâques"]).toMatchInlineSnapshot(
-    `1981-04-19T22:00:00.000Z`
-  );
-});
+  expect(joursFeries(1981)["Lundi de Pâques"]).toMatchInlineSnapshot(`1981-04-19T22:00:00.000Z`)
+})
 
 test("Lundi de Pâques 2049", () => {
-  expect(joursFeries(2049)["Lundi de Pâques"]).toMatchInlineSnapshot(
-    `2049-04-18T22:00:00.000Z`
-  );
-});
+  expect(joursFeries(2049)["Lundi de Pâques"]).toMatchInlineSnapshot(`2049-04-18T22:00:00.000Z`)
+})

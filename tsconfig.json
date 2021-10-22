@@ -1,20 +1,19 @@
 {
     "compilerOptions": {
-        "rootDir": "src",
-        "outDir": "lib",
-        "allowJs": false,
-        "declaration": true,
         "target": "ES5",
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "outDir": "./lib",
         "strict": true,
-        "forceConsistentCasingInFileNames": true,
         "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
         "noEmitOnError": true,
-        "sourceMap": true
     },
-    "include": [
-        "src/**/*"
-    ],
     "exclude": [
         "node_modules",
+        "lib",
+        "*/**/*.spec.ts"
     ]
 }

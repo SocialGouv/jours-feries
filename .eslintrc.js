@@ -1,18 +1,18 @@
 module.exports = {
-  root: true,
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    "ecmaVersion": 2020,
+  },
   env: {
-    es2020: true,
     "jest/globals": true,
   },
-  parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint", "jest"],
+  plugins: ["@typescript-eslint"],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:eslint-comments/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
-    "plugin:node/recommended",
     "plugin:jest/recommended",
     "plugin:jest/style",
     "plugin:prettier/recommended",
@@ -27,5 +27,5 @@ module.exports = {
       },
     ],
   },
-  ignorePatterns: ["node_modules/*", "lib/*"],
+  ignorePatterns: ["node_modules", "lib"],
 }

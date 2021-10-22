@@ -5,15 +5,18 @@
   "license": "Apache-2.0",
   "author": "Incubateur des Ministères Sociaux <dsi-incubateur@sg.social.gouv.fr> (https://www.fabrique.social.gouv.fr/)",
   "main": "lib/index.js",
+  "files": [
+    "lib/"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "lint": "eslint src",
     "test": "jest",
-    "fresh-install": "rm -rf node_modules/ lib/ && yarn"
+    "fresh-install": "rm -rf node_modules/ lib/ && yarn",
+    "check-all": "yarn lint && yarn build && yarn test"
   },
   "dependencies": {},
   "devDependencies": {
-    "@socialgouv/eslint-config-recommended": "1.96.0",
     "@types/jest": "^27.0.2",
     "@typescript-eslint/eslint-plugin": "^5.1.0",
     "@typescript-eslint/parser": "^5.1.0",
@@ -23,16 +26,10 @@
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-jest": "^25.2.2",
-    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "jest": "27.2.5",
-    "prettier": "2.4.1",
+    "prettier": "^2.4.1",
     "ts-jest": "^27.0.7",
     "typescript": "4.3.5"
-  },
-  "files": [
-    "lib/"
-  ],
-  "engines": {
-    "node": ">=10.0"
   }
 }
