@@ -1,16 +1,3 @@
-/**
- * J'essaie de tester en local le module npm dans un autre projet. En suivant : https://blog.logrocket.com/publishing-node-modules-typescript-es-modules/
- *
- * J'essaie de configurer tsconfig.json pour avoir des modules ES6.
- * Mais, quand on met module : "ES2020", yarn build rend des erreurs (babel? ) Comme si des choses n'étaient pas installées.
- *
- * Il faudrait faire un npm qui a un module cjs et es6.
- *
- * En parler à Julien.
- *
- * Le publier soit pour soi soit en PR sur socialgouv.
- */
-
 type ReturnTypeFetesMetropole = ReturnType<typeof fetes>
 type ReturnTypeFetesAlsace = ReturnTypeFetesMetropole & ReturnType<typeof fetesAlsace>
 type Zones = "métropole" | "alsace-moselle"
