@@ -44,10 +44,10 @@ const fetesAlsace = (year: number) => ({
  * @param year year you're interested in
  * @param options the zone you're interested in ("métropole" by default)
  */
-function getJoursFeries(year: number): ReturnTypeFetesMetropole
-function getJoursFeries(year: number, options: { zone: "métropole" }): ReturnTypeFetesMetropole
-function getJoursFeries(year: number, options: { zone: "alsace-moselle" }): ReturnTypeFetesAlsace
-function getJoursFeries(year: number, options: { zone: Zones } = { zone: "métropole" }) {
+function joursFeries(year: number): ReturnTypeFetesMetropole
+function joursFeries(year: number, options: { zone: "métropole" }): ReturnTypeFetesMetropole
+function joursFeries(year: number, options: { zone: "alsace-moselle" }): ReturnTypeFetesAlsace
+function joursFeries(year: number, options: { zone: Zones } = { zone: "métropole" }) {
   if (options.zone === "alsace-moselle") {
     return { ...fetes(year), ...fetesAlsace(year) }
   } else {
@@ -55,4 +55,4 @@ function getJoursFeries(year: number, options: { zone: Zones } = { zone: "métro
   }
 }
 
-export default getJoursFeries
+export { joursFeries }

@@ -1,4 +1,4 @@
-import joursFeries from "../src/index"
+import { joursFeries } from "../src/index"
 
 test("should match 2018 results", () =>
   expect(joursFeries(2018)).toMatchInlineSnapshot(`
