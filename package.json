@@ -24,15 +24,16 @@
     "@typescript-eslint/eslint-plugin": "^5.1.0",
     "@typescript-eslint/parser": "^5.1.0",
     "babel-jest": "^27.3.0",
-    "eslint": "8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-jest": "^25.2.2",
     "eslint-plugin-prettier": "^4.0.0",
-    "jest": "27.2.5",
-    "prettier": "^2.4.1",
     "ts-jest": "^27.0.7",
-    "typescript": "4.3.5"
+    "typescript": "4.3.5",
+    "@socialgouv/eslint-config-recommended": "1.101.0",
+    "eslint": "8.6.0",
+    "jest": "27.4.7",
+    "prettier": "2.5.1"
   }
 }
