@@ -1,3 +1,22 @@
+# [3.0.0](https://github.com/SocialGouv/jours-feries/compare/v2.0.0...v3.0.0) (2022-01-13)
+
+
+* feat!: refactor in TS (#256) ([17a6835](https://github.com/SocialGouv/jours-feries/commit/17a6835ff8aaee3ad78e5d6b70582d8f12585da0)), closes [#256](https://github.com/SocialGouv/jours-feries/issues/256)
+
+
+### BREAKING CHANGES
+
+* Rename in joursFeries as a named import.
+* Refactor of the second parameter, with a zone property.
+
+* fix: Update package.json
+
+Co-authored-by: Julien Bouquillon <contact@revolunet.com>
+
+* update yarn.lock
+
+Co-authored-by: Julien Bouquillon <contact@revolunet.com>
+
 # [2.0.0](https://github.com/SocialGouv/jours-feries/compare/v1.0.1...v2.0.0) (2020-05-11)
 
 
