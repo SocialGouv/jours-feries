@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/SocialGouv/jours-feries/compare/v3.0.0...v3.0.1) (2022-01-13)
+
+
+### Bug Fixes
+
+* jest in ci (wip) ([5b879ef](https://github.com/SocialGouv/jours-feries/commit/5b879ef2300ee6913f4eb238f86a34c3811c9ec6))
+
 # [3.0.0](https://github.com/SocialGouv/jours-feries/compare/v2.0.0...v3.0.0) (2022-01-13)
 
 

@@ -1,7 +1,7 @@
 {
   "name": "@socialgouv/jours-feries",
   "description": "Les jours feriés français",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "license": "Apache-2.0",
   "author": "Incubateur des Ministères Sociaux <dsi-incubateur@sg.social.gouv.fr> (https://www.fabrique.social.gouv.fr/)",
   "main": "./lib/index.js",
