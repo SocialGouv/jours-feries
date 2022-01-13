@@ -1,14 +1,36 @@
 {
   "name": "@socialgouv/jours-feries",
-  "description": "Les jours feriés Français",
-  "version": "2.0.0",
-  "main": "src/index.js",
+  "description": "Les jours feriés français",
+  "version": "3.0.0",
   "license": "Apache-2.0",
+  "author": "Incubateur des Ministères Sociaux <dsi-incubateur@sg.social.gouv.fr> (https://www.fabrique.social.gouv.fr/)",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "scripts": {
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn test && yarn lint",
+    "build": "tsc",
     "lint": "eslint src",
-    "test": "jest"
+    "test": "jest",
+    "fresh-install": "rm -rf node_modules/ lib/ && yarn",
+    "check-all": "yarn lint && yarn build && yarn test"
   },
+  "dependencies": {},
   "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "babel-jest": "^27.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jest": "^25.2.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "ts-jest": "^27.0.7",
+    "typescript": "4.3.5",
     "@socialgouv/eslint-config-recommended": "1.101.0",
     "eslint": "8.6.0",
     "jest": "27.4.7",
