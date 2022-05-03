@@ -8,12 +8,22 @@ JavaScript / npm port of [jours-feries-france](https://github.com/AntoineAugusti
 ## Usage
 
 ```js
-import joursFeries from "@socialgouv/jours-feries";
+import { joursFeries, DepartmentId } from "@socialgouv/jours-feries";
 
+// national holidays
 console.log(joursFeries(2018));
 
-// include jours feries alsace-moselle
-console.log(joursFeries(2018, { alsace: true }));
+// national holidays + holidays specific to alsace and moselle
+console.log(joursFeries(2018, { zone: 'alsace-moselle' }));
+// or national holidays + holidays specific to Bas-Rhin department (Alsace)
+console.log(joursFeries(2018, { zone: 'bas-rhin' }));
+console.log(joursFeries(2018, { department: DepartmentId.BAS_RHIN }));
+console.log(joursFeries(2018, { department: 67 }));
+
+// national holidays + holidays specific to Île de la Réunion
+console.log(joursFeries(2018, { department: 974 }));
+console.log(joursFeries(2018, { department: DepartmentId.REUNION }));
+console.log(joursFeries(2018, { zone: "réunion" }));
 ```
 
 ⚠️ Les dates renvoyées sont de vrais objets JavaScript `Date`
