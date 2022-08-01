@@ -602,14 +602,14 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@socialgouv/eslint-config-recommended@1.120.0":
-  version "1.120.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/eslint-config-recommended/-/eslint-config-recommended-1.120.0.tgz#10784a73ee6d6b981df1b3329c40bcb5b8d7a771"
-  integrity sha512-fVqNenxKfOa11ZKmZJFrBvjk9YL3a3lteBefytS/wxT6g4E9n51cZj7aE3q/qlCgNt/DeGoa4Iz0LgiOkgY5zw==
+"@socialgouv/eslint-config-recommended@1.121.0":
+  version "1.121.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/eslint-config-recommended/-/eslint-config-recommended-1.121.0.tgz#32b304bdaf6f6e4f3907e1cee9237f2fd6bab961"
+  integrity sha512-EYiE6Oi+2r4A2DXt4umoilrOoYGloEQxtMjEiGE+SwHaibWu+9o7ALiHzvhm9bxRrNMH2dr45qKkwHEMIQP0Uw==
   dependencies:
     eslint-config-prettier "~8.5.0"
     eslint-plugin-import "~2.26.0"
-    eslint-plugin-jest "~26.6.0"
+    eslint-plugin-jest "~26.7.0"
     eslint-plugin-prettier "~4.2.0"
     eslint-plugin-simple-import-sort "~7.0.0"
     eslint-plugin-sort-keys-fix "~1.1.2"
@@ -1343,17 +1343,10 @@ eslint-plugin-import@^2.25.2, eslint-plugin-import@~2.26.0:
     resolve "^1.22.0"
     tsconfig-paths "^3.14.1"
 
-eslint-plugin-jest@^26.0.0:
+eslint-plugin-jest@^26.0.0, eslint-plugin-jest@~26.7.0:
   version "26.7.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-26.7.0.tgz#41d405ac9143e1284a3401282db47ed459436778"
   integrity sha512-/YNitdfG3o3cC6juZziAdkk6nfJt01jXVfj4AgaYVLs7bupHzRDL5K+eipdzhDXtQsiqaX1TzfwSuRlEgeln1A==
-  dependencies:
-    "@typescript-eslint/utils" "^5.10.0"
-
-eslint-plugin-jest@~26.6.0:
-  version "26.6.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-26.6.0.tgz#546804fa42da75d7d58d4d3b278d5186abd3f6c0"
-  integrity sha512-f8n46/97ZFdU4KqeQYqO8AEVGIhHWvkpgNBWHH3jrM28/y8llnbf3IjfIKv6p2pZIMinK1PCqbbROxs9Eud02Q==
   dependencies:
     "@typescript-eslint/utils" "^5.10.0"
 

@@ -31,7 +31,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "ts-jest": "^28.0.0",
     "typescript": "4.7.4",
-    "@socialgouv/eslint-config-recommended": "1.120.0",
+    "@socialgouv/eslint-config-recommended": "1.121.0",
     "eslint": "8.20.0",
     "jest": "^28.0.0",
     "jest-cli": "^28.0.0",
