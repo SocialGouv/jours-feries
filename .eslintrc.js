@@ -24,7 +24,7 @@ module.exports = {
       {
         trailingComma: "all",
         semi: false,
-        printWidth: 120,
+        printWidth: 140,
       },
     ],
   },
