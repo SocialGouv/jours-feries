@@ -47,7 +47,8 @@ const fetesAlsace = (year: number) => ({
 function joursFeries(year: number): ReturnTypeFetesMetropole
 function joursFeries(year: number, options: { zone: "métropole" }): ReturnTypeFetesMetropole
 function joursFeries(year: number, options: { zone: "alsace-moselle" }): ReturnTypeFetesAlsace
-function joursFeries(year: number, options: { zone: Zones } = { zone: "métropole" }) {
+function joursFeries(year: number, options: { zone: Zones } = { zone: "métropole" }): ReturnTypeFetesMetropole | ReturnTypeFetesAlsace
+{
   if (options.zone === "alsace-moselle") {
     return { ...fetes(year), ...fetesAlsace(year) }
   } else {
@@ -55,4 +56,23 @@ function joursFeries(year: number, options: { zone: Zones } = { zone: "métropol
   }
 }
 
-export { joursFeries }
+/**
+ * Check if a date is a holiday in France.
+ *
+* @param date date you're interested in
+ * @param options the zone you're interested in ("métropole" by default)
+ */
+function isJourFerie(date: Date): boolean
+function isJourFerie(date: Date, options: { zone: Zones } = { zone: "métropole" } ): boolean 
+{
+  const year = date.getFullYear()
+  let joursFeriesByYear;
+  if (options.zone === "alsace-moselle") {
+    joursFeriesByYear = joursFeries(year, { zone: 'alsace-moselle' })
+    } else {
+    joursFeriesByYear = joursFeries(year, { zone: 'métropole' })
+  }
+  return Object.values(joursFeriesByYear).some((jourFerie) => jourFerie.getTime() === date.getTime())
+}
+
+export { joursFeries, isJourFerie }
